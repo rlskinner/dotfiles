@@ -1,0 +1,14 @@
+class XXX : public ZZZ {
+public:
+   XXX();
+   virtual	~XXX();
+	   
+protected:
+	  
+private:
+   // keep these from being automatically generated and called without
+   // our knowledge
+   XXX( const XXX &rhs ) {}
+   XXX	&operator=( const XXX &rhs ) { return *this; }
+};
+

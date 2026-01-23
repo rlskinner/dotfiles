@@ -1,0 +1,181 @@
+set visualbell
+set lines=69
+set guioptions+=t   " tear off menus
+
+" Windows 2000 sets OSTYPE? -- if $OSTYPE == "posix" && $OS == "Windows_NT"
+if $OS == "Windows_NT"
+    " echo "windows"
+    set guifont=Consolas:h11:cANSI:qDRAFT
+	source $NET_HOME/dotfiles/vimfiles/colors/myWinBlue.vim	" remove 'bold' for crappy Windows fonts
+elseif $OSTYPE == "linux"
+    " echo "linux"
+    set guifont=-schumacher-clean-bold-r-normal-*-*-140-*-*-c-*-iso646.1991-irv
+    " ugh! now we have to deal with this!
+    set guifontset=
+elseif $OSTYPE == "irix"
+    " echo "irix"
+    " for 1280x1024
+    set guifont=-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1 
+else
+    echo "unable to set guifont for unknown OS"
+endif
+" set guifont=-misc-fixed-bold-r-normal--15-140-75-75-c-90-iso8859-1 " for 1600x1280
+" set guifont=-misc-fixed-bold-r-normal--13-100-100-100-c-80-iso8859-1 " for 1280x1024
+
+9999 amenu &Help.&Overview<Tab><F1>		:help<CR>
+
+amenu HTML.comment	i<!-- -->
+
+amenu HTML.H1	I<h1>A</h1>
+amenu HTML.H2	I<h2>A</h2>
+amenu HTML.H3	I<h3>A</h3>
+amenu HTML.H4	I<h4>A</h4>
+amenu HTML.H5	I<h5>A</h5>
+amenu HTML.H6	I<h6>A</h6>
+amenu HTML.H7	I<h7>A</h7>
+
+amenu HTML.anchor 		i<a href="insert-link">insert-text</a>
+
+amenu HTML.list,\ data 		o<C-T><dl>\r<dt>\r<dd>\r</dl>\r<C-D>
+amenu HTML.list,\ ordered 	o<C-T><ol>\r<li>\r</ol>\r<C-D>
+amenu HTML.list,\ unordered 	o<C-T><ul>\r<li>\r</ul>\r<C-D>
+
+amenu HTML.table	o<table>\r<th>\r</th>\r<tr>\r<C-T><td>\r</td>\r<C-D></tr>\r</table>\r
+amenu HTML.table\ opts	cwtable align="" bgcolor="" border=0 bordercolor="" BORDERCOLORDARK="" BORDERCOLORLIGHT="" CELLPADDING="" CELLSPACING="" VALIGN="" WIDTH=""
+
+amenu HTML.sub		i<sub></sub>
+
+amenu HTML.bold			i<b></b>
+amenu HTML.italics		i<i></i>
+amenu HTML.underline		i<u></u>
+
+amenu HTML.special\ char.\"\ (quotation\ mark)		i&quot;
+amenu HTML.special\ char.\&\ (ampersand)		i&amp;
+amenu HTML.special\ char.\¦\ (broken\ vertical\ bar)	i&brvbar;
+amenu HTML.special\ char.non-breaking\ space	i&nbsp;
+amenu HTML.special\ char.\´\ (acute\ accent)		i&acute;
+
+amenu HTML.special\ char.\¡\ (inverted\ exclamation)	i&iexcl;
+amenu HTML.special\ char.\¿\ (inverted\ question\ mark)	i&iquest;
+
+amenu HTML.special\ char.\¶\ (paragraph\ sign)		i&para;
+amenu HTML.special\ char.\§\ (section\ sign)		i&sect;
+amenu HTML.special\ char.\¨\ (umlaut\ (dieresis))	i&uml;
+amenu HTML.special\ char.\©\ (copyright)		i&copy;
+amenu HTML.special\ char.\ª\ (feminine\ ordinal)	i&ordf;
+amenu HTML.special\ char.\«\ (left\ angle\ quote,\ guillemotleft)	i&laquo;
+amenu HTML.special\ char.\»\ (right\ angle\ quote,\ guillemotright)	i&raquo;
+amenu HTML.special\ char.\­\ (soft\ hyphen)		i&shy;
+amenu HTML.special\ char.\®\ (registered\ trademark)	i&reg;
+amenu HTML.special\ char.\¯\ (macron\ accent)		i&macr;
+amenu HTML.special\ char.\¸\ (cedilla)			i&cedil;
+amenu HTML.special\ char.\º\ (masculine\ ordinal)	i&ordm;
+
+amenu HTML.special\ char.\¢\ (cent\ sign)		i&cent;
+amenu HTML.special\ char.\£\ (pound\ sterling)		i&pound;
+amenu HTML.special\ char.\¤\ (general\ currency\ sign)	i&curren;
+amenu HTML.special\ char.\¥\ (yen\ sign)		i&yen;
+
+amenu HTML.special\ char.\×\ (multiply\ sign)		i&times;
+amenu HTML.special\ char.\÷\ (division\ sign)		i&divide;
+amenu HTML.special\ char.\<\ (less-than\ sign)		i&lt;
+amenu HTML.special\ char.\>\ (greater-than\ sign)	i&gt;
+amenu HTML.special\ char.\·\ (middle\ dot)		i&middot;
+amenu HTML.special\ char.\¬\ (not\ sign)		i&not;
+amenu HTML.special\ char.\°\ (degree\ sign)		i&deg;
+amenu HTML.special\ char.\±\ (plus\ or\ minus)		i&plusmn;
+amenu HTML.special\ char.\¹\ (superscript\ one)		i&sup1;
+amenu HTML.special\ char.\²\ (superscript\ two)		i&sup2;
+amenu HTML.special\ char.\³\ (superscript\ three)	i&sup3;
+amenu HTML.special\ char.\µ\ (micro\ sign)		i&micro;
+amenu HTML.special\ char.\¼\ (fraction\ one-fourth)	i&frac14;
+amenu HTML.special\ char.\½\ (fraction\ one-half)	i&frac12;
+amenu HTML.special\ char.\¾\ (fraction\ three-fourths)	i&frac34;
+
+
+amenu HTML.special\ char.Capitals.A.\À\ (grave\ accent)	i&Agrave;
+amenu HTML.special\ char.Capitals.A.\Á\ (acute\ accent)	i&Aacute;
+amenu HTML.special\ char.Capitals.A.\Â\ (circumflex\ accent)	i&Acirc;
+amenu HTML.special\ char.Capitals.A.\Ã\ (tilde)			i&Atilde;
+amenu HTML.special\ char.Capitals.A.\Ä\ (dieresis\ or\ umlaut\ mark)	i&Auml;
+amenu HTML.special\ char.Capitals.A.\Å\ (ring)			i&Aring;
+amenu HTML.special\ char.Capitals.A.\Æ\ (diphthong\ (ligature))	i&AElig;
+amenu HTML.special\ char.Capitals.\Ç\ (C,\ cedilla)		i&Ccedil;
+amenu HTML.special\ char.Capitals.E.\È\ (grave\ accent)		i&Egrave;
+amenu HTML.special\ char.Capitals.E.\É\ (acute\ accent)		i&Eacute;
+amenu HTML.special\ char.Capitals.E.\Ê\ (circumflex\ accent)	i&Ecirc;
+amenu HTML.special\ char.Capitals.E.\Ë\ (dieresis\ or\ umlaut\ mark)	i&Euml;
+amenu HTML.special\ char.Capitals.I.\Ì\ (grave\ accent)		i&Igrave;
+amenu HTML.special\ char.Capitals.I.\Í\ (acute\ accent)		i&Iacute;
+amenu HTML.special\ char.Capitals.I.\Î\ (circumflex\ accent)	i&Icirc;
+amenu HTML.special\ char.Capitals.I.\Ï\ (dieresis\ or\ umlaut\ mark)	i&Iuml;
+amenu HTML.special\ char.Capitals.\Ð\ (Eth,\ Icelandic)		i&ETH;
+amenu HTML.special\ char.Capitals.\Ñ\ (N,\ tilde)		i&Ntilde;
+amenu HTML.special\ char.Capitals.O.\Ò\ (grave\ accent)		i&Ograve;
+amenu HTML.special\ char.Capitals.O.\Ó\ (acute\ accent)		i&Oacute;
+amenu HTML.special\ char.Capitals.O.\Ô\ (circumflex\ accent)	i&Ocirc;
+amenu HTML.special\ char.Capitals.O.\Õ\ (tilde)			i&Otilde;
+amenu HTML.special\ char.Capitals.O.\Ö\ (dieresis\ or\ umlaut\ mark)	i&Ouml;
+amenu HTML.special\ char.Capitals.O.\Ø\ (slash)			i&Oslash;
+amenu HTML.special\ char.Capitals.U.\Ù\ (grave\ accent)		i&Ugrave;
+amenu HTML.special\ char.Capitals.U.\Ú\ (acute\ accent)		i&Uacute;
+amenu HTML.special\ char.Capitals.U.\Û\ (circumflex\ accent)	i&Ucirc;
+amenu HTML.special\ char.Capitals.U.\Ü\ (dieresis\ or\ umlaut\ mark)	i&Uuml;
+amenu HTML.special\ char.Capitals.\Ý\ (Y,\ acute\ accent)	i&Yacute;
+amenu HTML.special\ char.Capitals.\Þ\ (THORN,\ Icelandic)	i&THORN;
+amenu HTML.special\ char.Small.\ß\ (sharp\ s,\ German\ (sz)	i&szlig;
+amenu HTML.special\ char.Small.a.\à\ (grave\ accent)		i&agrave;
+amenu HTML.special\ char.Small.a.\á\ (acute\ accent)		i&aacute;
+amenu HTML.special\ char.Small.a.\â\ (circumflex\ accent)	i&acirc;
+amenu HTML.special\ char.Small.a.\ã\ (tilde)			i&atilde;
+amenu HTML.special\ char.Small.a.\ä\ (dieresis\ or\ umlaut\ mark)	i&auml;
+amenu HTML.special\ char.Small.a.\å\ (ring)			i&aring;
+amenu HTML.special\ char.Small.\æ\ (ae\ diphthong\ (ligature))	i&aelig;
+amenu HTML.special\ char.Small.\ç\ (c,\ cedilla)		i&ccedil;
+amenu HTML.special\ char.Small.e.\è\ (grave\ accent)		i&egrave;
+amenu HTML.special\ char.Small.e.\é\ (acute\ accent)		i&eacute;
+amenu HTML.special\ char.Small.e.\ê\ (circumflex\ accent)	i&ecirc;
+amenu HTML.special\ char.Small.e.\ë\ (dieresis\ or\ umlaut\ mark)	i&euml;
+amenu HTML.special\ char.Small.i.\ì\ (grave\ accent)		i&igrave;
+amenu HTML.special\ char.Small.i.\í\ (acute\ accent)		i&iacute;
+amenu HTML.special\ char.Small.i.\î\ (circumflex\ accent)	i&icirc;
+amenu HTML.special\ char.Small.i.\ï\ (dieresis\ or\ umlaut\ mark)	i&iuml;
+amenu HTML.special\ char.Small.\ð\ (eth,\ Icelandic)		i&eth;
+amenu HTML.special\ char.Small.\ñ\ (n,\ tilde)			i&ntilde;
+amenu HTML.special\ char.Small.o.\ò\ (grave\ accent)		i&ograve;
+amenu HTML.special\ char.Small.o.\ó\ (acute\ accent)		i&oacute;
+amenu HTML.special\ char.Small.o.\ô\ (circumflex\ accent)	i&ocirc;
+amenu HTML.special\ char.Small.o.\õ\ (tilde)			i&otilde;
+amenu HTML.special\ char.Small.o.\ö\ (dieresis\ or\ umlaut\ mark)	i&ouml;
+amenu HTML.special\ char.Small.o.\ø\ (slash)			i&oslash;
+amenu HTML.special\ char.Small.u.\ù\ (grave\ accent)		i&ugrave;
+amenu HTML.special\ char.Small.u.\ú\ (acute\ accent)		i&uacute;
+amenu HTML.special\ char.Small.u.\û\ (circumflex\ accent)	i&ucirc;
+amenu HTML.special\ char.Small.u.\ü\ (dieresis\ or\ umlaut\ mark)	i&uuml;
+amenu HTML.special\ char.Small.\ý\ (y,\ acute\ accent)		i&yacute;
+amenu HTML.special\ char.Small.\þ\ (thorn,\ Icelandic)		i&thorn;
+amenu HTML.special\ char.Small.\ÿ\ (y,\ dieresis\ or\ umlaut\ mark)	i&yuml;
+
+" amenu SCS.if\ block		oif( ) {\r}
+" amenu SCS.if-else\ block	oif( ) {\r} else {\r}
+" amenu SCS.for\ block		ofor( init;\r<C-T> while;\rincr ) {\r<C-D><C-D>}
+" amenu SCS.switch\ block		oswitch( switchvariable ) {\r<C-T>case case1:\r<C-T>break;\r<C-D>default:\r<C-T>break;\r<C-D><C-D>}
+amenu &SCS.&AObject\ class\ template	:read $HOME/_vim/C++/SCS_AObject_class_template.cpp<CR>
+amenu &SCS.&Qt\ class\ template		    :read $HOME/_vim/C++/SCS_qt_class_template.cpp<CR>
+amenu &SCS.&Interface\ template		    :read $HOME/_vim/C++/SCS_interface_template.cpp<CR>
+amenu &SCS.function\ do&cumentation		:read $HOME/_vim/C++/Sandcastle_function_doc.cpp<CR>
+amenu &SCS.&file\ &header		        :read $HOME/_vim/C++/SCS_file_header.cpp<CR>
+amenu &SCS.-Sep-                        :
+amenu &SCS.class\ &implementation		:read $HOME/_vim/C++/SCS_class_implementation.cpp<CR>
+amenu &SCS.&include\ file\ template		:read $HOME/_vim/C++/SCS_include_file_template.cpp<CR>
+amenu &SCS.&widget\ layout\ template	:read $HOME/_vim/C++/SCS_widget_layout_template.cpp<CR>
+amenu &SCS.if\ block		oif()\r{\r}
+amenu &SCS.if-else\ block	oif()\r{\r}\relse\r{\r}
+amenu &SCS.for\ block		ofor(init; while; incr)\r{\r}
+amenu &SCS.switch\ block		oswitch(switchvariable)\r{\r<C-T>case case1:\r<C-T>break;\r<C-D>default:\r<C-T>break;\r<C-D><C-D>}
+amenu &SCS.QMessageBox\ &Template		:read $HOME/_vim/C++/QMessageBox_template.cpp<CR>
+
+amenu 40.305 &Tools.Jump\ to\ ne&xt\ tag<Tab>:tn		:tn<CR>
+
+amenu &Snippets.&Raw\ String\ Literal	iR"(my string)"
+amenu &Snippets.&Raw\ String\ Literal\ (delimiter)	iR"_(my string)_"
