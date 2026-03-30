@@ -1,19 +1,48 @@
-set tabstop=8 shiftwidth=4 autoindent showmatch terse
+" Vim configuration organized by Help category
+"   Robert Skinner
+
+set autoindent
+set autowrite           " write all files when exiting
+
+set browsedir=buffer    " Make GUI File Open use current directory ************** gvimrc?
+
+set noequalalways       " don't equalize window size when window opened/closed
+
+set formatoptions-=t    " don't auto-wrap text (code)
+set formatoptions+=c    " auto-wrap comments using textwidth
+set formatoptions+=r    " insert comment leader when hitting <Enter> in Insert mode
+set formatoptions+=o    " insert comment leader when hitting 'o' or 'O' in Normal mode
+set formatoptions+=q    " format comments with "gq"
+set formatoptions+=l    " long lines not broken in insert mode
+set formatoptions+=n    " recognize numbered lists when formatting
+set formatoptions+=2    " indent of second line applied to rest of paragraph 
+set formatoptions+=1    " don't break a line after a one-letter word.
+	
+set hidden			    " switch buffers w/o writing a changed buffer
+set hlsearch            " highlight search patterns
+
+" path is a list of directories which will be searched when using the
+" |gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind| and other commands...
+set path=.
+set path+=$QTDIR
+set path+=$QTDIR/include
+
+set scrolloff=0     " Minimal number of screen lines to keep above and below the cursor. 5 (default) too much, 1 might be OK
+set shellslash      " use '/' for file completion (so '\' isn't passed to cygwin grep)
+set showmatch       " When a bracket is inserted, briefly jump to the matching one.
+set nosplitbelow    " new window above old
+
+set tabstop=8 shiftwidth=4 noexpandtab " behaves like 4 space tabs, but hard tabs inserted every 8 characters
+set tags=tags;      " ';' causes vim to search up from current directory
+set terse           " Add 's' flag to 'shortmess' option, i.e. wrap around searches w/o message
+set textwidth=100   " formatting text width
 
 " syntax on
-set hidden			 " lets you switch buffers w/o writing a changed buffer
-set noequalalways	 " don't equalize window size when window opened/closed
-set autowrite		 " mainly for program development
-set browsedir=buffer " Make GUI File Open use current directory
-set noexpandtab
-set nosplitbelow       " new window above old
-set formatoptions=croqln21
-set scrolloff=0      " default of 5 is too much, 1 might be OK.  Very large value keeps the cursor centered
-set shellslash       " use '/' for file completion (so '\' isn't passed to cygwin grep)
-set textwidth=100    " formatting text width
-set tags=tags;       " ';' causes vim to search up from current directory
 
+" Useful tidbits
+"
 " set colorcolumn=80  " highlights column #80
+
 
 " menu wildcard and completion.  
 " wildmenu: enable tab-selected menu when completing command
@@ -45,12 +74,12 @@ au FileType xml setlocal foldmethod=syntax
 
 set backupext=.bak
 
-" Put backup, swap and undo files in c:/tmp/vim, with directory info
+" Put backup, swap and undo files in $TMP/vim, with directory info
 " This directory must exist, but where/when should I create it?  In .tcshrc?
 " Should they fall back to the current directory?
-set backupdir=c:/tmp/vim//
-set directory=c:/tmp/vim//
-set undodir=c:/tmp/vim//
+set backupdir=$TMP/vim//
+set directory=$TMP/vim//
+set undodir=$TMP/vim//
 
 " " set makeprg=clearmake
 " " set makeprg=make\ -k
@@ -81,7 +110,7 @@ set undodir=c:/tmp/vim//
 " <F7>		: Run make
 " <C-F7>	: Run make on the current file
 " <M-F7>	: Open VS Debug build output
-" <C-F7>	: Open build output from c:/tmp/m.er
+" <C-F7>	: Open build output from $TMP/m.er
 " <C-M-F7>	: Open VS Release build output
 "
 " <F8>		: Next File
@@ -150,7 +179,7 @@ map	<C-F12>	:botright copen 3<CR>
 " obsolete:  map	<C-F7>	:make ./debug/%:.:r.obj<CR>
 " VS2005 now outputs UNICODE, so convert it first
 " obsolete:  map <M-F7> :!C:\cygwin64\bin\iconv -f UTF-16 Debug/BuildLog.htm > errors.err<CR>:cfile errors.err<CR>
-" obsolete:  map <S-F7> :cfile c:/tmp/m.er<CR>
+" obsolete:  map <S-F7> :cfile $TMP/m.er<CR>
 " obsolete:  map <C-M-F7> :!C:\cygwin64\bin\iconv -f UTF-16 Release/BuildLog.htm > errors.err<CR>:cfile errors.err<CR>
 
 " These were "Unix" style, from KDevelop?
@@ -320,10 +349,6 @@ set expandtab
 set softtabstop=0 " value shouldn't matter with expandtab set
 set shiftwidth=4
 syn keyword cConstant null
-
-set path=.
-set path+=$QTDIR
-set path+=$QTDIR/include
 
 " " Windows 2000 additions, mostly from the Wilcox days
 " " set guifont=Lucida_Console:h8:b:cANSI
@@ -1358,4 +1383,3 @@ nnoremap <silent> <C-P> :call SwitchToNextBuffer(-1)<CR>
 " set path+=C:/Dev/BRCM/src/plantint/elco/UI/OutputManager/OutputManager/BLL
 " set path+=C:/Dev/BRCM/src/plantint/elco/UI/OutputManager/OutputManager/DAL
 " set path+=C:/Dev/BRCM/src/plantint/elco/UI/OutputManager/OutputManager/UI
-

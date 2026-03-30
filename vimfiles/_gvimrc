@@ -1,7 +1,13 @@
-set visualbell
-set lines=69
+" GVim configuration
+"   Robert Skinner
+
 set guioptions+=t   " tear off menus
 
+set lines=69        " ? Can we compute this based on font and resolution?
+
+set visualbell      " Use a visual bell instead of beeping.
+
+" Set guifont
 " Windows 2000 sets OSTYPE? -- if $OSTYPE == "posix" && $OS == "Windows_NT"
 if $OS == "Windows_NT"
     " echo "windows"
